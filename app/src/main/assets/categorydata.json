@@ -1,0 +1,140 @@
+{
+  "items": {
+    "Fusion Box": [
+      {
+        "name": "Dal Makhni Rice Box",
+        "description": "Creamy Dal Makhni with Rice + Salad + Mint chutney + Garlic yogurt. The most satisfying meal ever!",
+        "price": 148,
+        "type": "veg"
+      },
+      {
+        "name": "Chole Chawal Box",
+        "description": "Authentic Amritsari chole with Rice + Salad + Mint chutney + Garlic yogurt",
+        "price": 148,
+        "type": "veg"
+      },
+      {
+        "name": "Rajma Chawal Box",
+        "description": "Really good Rajma served with Rice + Salad + Mint chutney + Garlic yogurt. Comfort meal at it's best!",
+        "price": 148,
+        "type": "veg"
+      },
+      {
+        "name": "Grilled Tikki Box",
+        "description": "Grilled veg patty with a spicy masala curry; Served with Rice + Salad + Mint chutney + Garlic yogurt",
+        "price": 188,
+        "type": "veg"
+      },
+      {
+        "name": "Paneer Masala Box",
+        "description": "Loads of creamy Paneer with a masaledaar curry; Served with Rice + Salad + Mint chutney + Garlic yogurt",
+        "price": 198,
+        "type": "veg"
+      }
+    ],
+    "Curries": [
+      {
+        "name": "Basmati Rice",
+        "description": "Extra-long grain basmati rice steamed with mild & aromatic Desi herbs | Serves 2",
+        "price": 98,
+        "type": "veg"
+      },
+      {
+        "name": "Tawa Paratha",
+        "description": "Garma-garam soft whole wheat parathas made in Desi ghee",
+        "price": 58,
+        "type": "veg"
+      },
+      {
+        "name": "Kadhai Paneer",
+        "description": "Soft paneer simmered in masala curry made with freshly ground spices | Serves 2",
+        "price": 248,
+        "type": "veg"
+      },
+      {
+        "name": "Raita",
+        "description": "Perfect way to complement your feast. Thick masala raita with notes of Cumin & fresh Mint | Serves 1",
+        "price": 28,
+        "type": "veg"
+      },
+      {
+        "name": "Butter Chicken",
+        "description": "Our version of an indulgent butter chicken curry. It's rich, creamy & NOT sweet. It's the real deal | Serves 2",
+        "price": 298,
+        "type": "non veg"
+      }
+    ],
+    "Biryani": [
+      {
+        "name": "Shahi Paneer Biryani",
+        "description": "Extra-long basmati rice cooked with loads of fire-grilled paneer tikkas & whole spices. Burst of flavours in every bite! Served with Raita",
+        "price": 238,
+        "type": "veg"
+      },
+      {
+        "name": "Firangi Subz Biryani",
+        "description": "Baby corn, Mushroom & Paneer cooked in biryani masala & layered over fragrant basmati rice. A mind blowing fusion! Served with Raita",
+        "price": 208,
+        "type": "veg"
+      },
+      {
+        "name": "Chicken Tikka Biryani",
+        "description": "Smoked Chicken-Tikka slow cooked with fragrant basmati rice & whole spices. A truly novel experience! Served with Raita",
+        "price": 258,
+        "type": "non veg"
+      },
+      {
+        "name": "Murg Dum Biryani",
+        "description": "Succulent chicken (boneless) layered over aromatic super-long grain rice, slow cooked in quintessential dum style! Served with Raita",
+        "price": 238,
+        "type": "non veg"
+      }
+    ],
+    "Wraps": [
+      {
+        "name": "Paneer Wrap",
+        "description": "Tandoor grilled paneer tossed with a Desi style sauce & crunchy veggies. Highly recommended!",
+        "price": 178,
+        "type": "veg"
+      },
+      {
+        "name": "Chicken Wrap",
+        "description": "Classic chicken tikka roll in a whole wheat paratha & tikka sauce. A BOX8 Special!",
+        "price": 188,
+        "type": "non veg"
+      },
+      {
+        "name": "Mayo Wrap",
+        "description": "Loaded with Fire Grilled Chicken topped with a generous portion of Mayo & the perfect amount of crunchy veggies.",
+        "price": 148,
+        "type": "non veg"
+      },
+      {
+        "name": "Tikki Wrap",
+        "description": "Crispy 'Grilled' veg tikki topped generously with mayo & exotic veggies & wrapped in a whole wheat paratha. Lip smacking!",
+        "price": 88,
+        "type": "veg"
+      },
+      {
+        "name": "Patty Wrap",
+        "description": "Oven Grilled all-veg patty with a flavourful tikka sauce wrapped with fresh veggies! Tantalize your Desi taste-buds!",
+        "price": 148,
+        "type": "veg"
+      }
+    ],
+    "Ice Cream": [
+      {
+        "name": "Tender Coconut",
+        "description": "Chunks of fresh tender coconut pieces slow churned into a subtly flavoured creamy wonder. A coastal dream!",
+        "price": 219,
+        "type": "veg"
+      },
+      {
+        "name": "Sheer Khurma",
+        "description": "The quintessential Ramadan feast now in an ice-cream- A Desi fusion never seen before.",
+        "price": 219,
+        "type": "veg"
+      }
+    ]
+  }
+}
