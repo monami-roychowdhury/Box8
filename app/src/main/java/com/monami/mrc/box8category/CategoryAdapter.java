@@ -12,28 +12,20 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryDataHolder>{
-//    private ArrayList arrayList;
-//    private ArrayList<HashMap<String, String>> categoryDataList;
+
     private ArrayList<DataModel> categoryList;
     private Context context;
     private String PLACEHOLDER_IMAGE_URL = "http://via.placeholder.com/600x600.png";
-
     private static MyClickListener myClickListener;
-
     public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
     }
-
 
     public CategoryAdapter(Context context,ArrayList<DataModel> categoryList){
         this.context = context;
         this.categoryList = categoryList;
     }
-
     public class CategoryDataHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
          TextView categoryName;
          ImageView categoryImage;
@@ -44,7 +36,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
              categoryImage = (ImageView)itemView.findViewById(R.id.category_img);
              itemView.setOnClickListener(this);
          }
-
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
@@ -53,17 +44,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             intent.putExtra("categoryName", categoryList.get(position).getCategoryName());
             context.startActivity(intent);
         }
-//        ArrayList<DataModel> arrayList = new ArrayList<>();
-//        public CategoryDataHolder(View v, Context context, ArrayList al){
-//            super(v);
-//            categoryName = (TextView)v.findViewById(R.id.category_name);
-//            categoryImage = (ImageView)v.findViewById(R.id.category_img);
-//            arrayList = al;
-//            mContext = context;
-//
-//        }
-    }
 
+    }
     @Override
     public CategoryAdapter.CategoryDataHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_grid,parent,false);
@@ -71,30 +53,23 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return vh;
     }
 
-
-
     @Override
     public void onBindViewHolder(CategoryDataHolder holder, final int position){
-//        DataModel dataModel = (DataModel)arrayList.get(position);
+
         holder.categoryName.setText(categoryList.get(position).getCategoryName());
         Picasso.get().load(PLACEHOLDER_IMAGE_URL.toString()).into(holder.categoryImage);
 
-
     }
-
     @Override
     public int getItemCount(){
         return categoryList.size();
     }
-
     @Override
     public int getItemViewType(int position) {
         return super.getItemViewType(position);
     }
-
     public interface MyClickListener {
         public void onItemClick(View v, int position);
     }
 }
-
 

@@ -2,25 +2,19 @@ package com.monami.mrc.box8category;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,7 +27,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
-
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     RelativeLayout mRelativeLayout;
@@ -42,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     DataModel categoryDataModel;
     ArrayList<DataModel> al = new ArrayList<>();
-
     ViewPager viewpager;
     PagerAdapter adapter;
     ImageButton leftNav;
@@ -51,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private static final Integer[] IMAGES = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4, R.drawable.img5};
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-
     private String categoryName;
     private String productName;
     private String productPrice;
@@ -59,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
     private String productType;
     ArrayList<HashMap<String, String>> categoryDataList;
     ArrayList<DataModel> categoryList = new ArrayList<>();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,64 +61,21 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setTitle("Box8 Home");
         getSupportActionBar().setTitle("Box8 Home");
 
-//        al.add(new DataModel(R.drawable.img1, "Fusion Box"));
-//        al.add(new DataModel(R.drawable.img2, "Curries"));
-//        al.add(new DataModel(R.drawable.img3, "Biryani"));
-//        al.add(new DataModel(R.drawable.img4, "Wraps"));
-//        al.add(new DataModel(R.drawable.img5, "Ice Cream"));
-
 
         //Load JSON Data
         try{
             JSONObject obj = new JSONObject(loadJsonData());
             JSONObject items_obj = obj.getJSONObject("items");
-//            DataModel dataModel = new DataModel();
+
             Iterator<String> iterator = items_obj.keys();
             while (iterator.hasNext()){
                 DataModel dataModel = new DataModel();
                 categoryName = iterator.next();
                 dataModel.setCategoryName(categoryName);
                 categoryList.add(dataModel);
-
-            }
-
-
-//            JSONArray resultArray = obj.getJSONArray("result");
-//
-//            categoryDataList = new ArrayList<>();
-//            HashMap<String, String> dataMap;
-//
-//            for(int i = 0; i < resultArray.length(); i++){
-//                JSONObject jsonData = resultArray.getJSONObject(i);
-////                categoryDataModel = new DataModel();
-//
-//                categoryName = jsonData.getString("category");
-//
-////                JSONArray productsArray = jsonData.getJSONArray("products");
-////                for(int j = 0; j < productsArray.length(); j++){
-////                    JSONObject products_obj = productsArray.getJSONObject(i);
-////                    productName = products_obj.getString("name");
-////                    productDesc = products_obj.getString("description");
-////                    productPrice = String.valueOf(products_obj.getInt("price"));
-////                    productType = products_obj.getString("type");
-////
-////
-////                }
-//                dataMap = new HashMap<>();
-//                dataMap.put("categoryName", categoryName);
-////                dataMap.put("productName", productName);
-////                dataMap.put("productDesc", productDesc);
-////                dataMap.put("productPrice", productPrice);
-////                dataMap.put("productType", productType);
-//                categoryDataList.add(dataMap);
-//
-//            }
-
-        }catch (JSONException e){
+            }        }catch (JSONException e){
             e.printStackTrace();
         }
-
-
 
         //Banner Images
         for(int i = 0; i < IMAGES.length; i++){
@@ -165,31 +111,7 @@ public class MainActivity extends AppCompatActivity {
         });
         indicator.setViewPager(viewpager);
         NUM_PAGES = IMAGES.length;
-//        viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                currentPage = position;
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-////                Toast.makeText(getApplicationContext(), "context changed", Toast.LENGTH_SHORT).show();
-////                if(state == ViewPager.SCROLL_STATE_IDLE){
-////                    int pageCount = bannerImages.length;
-////                    if(currentPage == 0){
-////                        viewpager.setCurrentItem(pageCount - 1, false);
-////                    }else if(currentPage == pageCount - 1){
-////                        viewpager.setCurrentItem(0, false);
-////                    }
-////                }
-//
-//            }
-//        });
+
         final Handler handler = new Handler();
         final Runnable update = new Runnable() {
             @Override
@@ -207,25 +129,16 @@ public class MainActivity extends AppCompatActivity {
                 handler.post(update);
             }
         }, 2000, 2000);
-
         //Category grids
         mRelativeLayout = (RelativeLayout)findViewById(R.id.relative_layout);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-
-//        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        CategoryAdapter categoryAdapter = new CategoryAdapter(getApplicationContext(), al);
-//        mRecyclerView.setAdapter(categoryAdapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 return position == 4 ? 2 : 1;
-
             }
         });
-
-
 
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mAdapter = new CategoryAdapter(mContext, categoryList);
@@ -233,10 +146,7 @@ public class MainActivity extends AppCompatActivity {
         scrollView.smoothScrollTo(0, 0);
 
 
-
-
     }
-
     //Read Category Data from JSON File
     public String loadJsonData(){
         String json = null;
@@ -253,7 +163,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return json;
     }
-
-
 
 }

@@ -8,38 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-
 public class ViewPagerAdapter extends PagerAdapter {
-//    int[] bannerImage;
+
     ArrayList<Integer> bannerImage = new ArrayList<>();
     LayoutInflater inflater;
     Context context;
     int position = 3;
-
     public ViewPagerAdapter(Context context, ArrayList<Integer> bannerImage){
         this.context = context;
         this.bannerImage = bannerImage;
     }
-
     @Override
     public int getCount() {
         return bannerImage.size();
     }
-
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == (RelativeLayout)object;
     }
-
     @Override
     public Parcelable saveState() {
         return null;
     }
-
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView;
@@ -50,15 +43,8 @@ public class ViewPagerAdapter extends PagerAdapter {
         imageView.setImageResource(bannerImage.get(position));
         return view;
     }
-
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((RelativeLayout) object);
-
     }
-
-//    @Override
-//    public float getPageWidth(int position) {
-//        return .20f;
-//    }
 }
